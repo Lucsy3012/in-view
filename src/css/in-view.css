@@ -1,0 +1,15 @@
+:root {
+  --inViewMultiplier: 1;
+  --inViewEasingDuration: .3s;
+  --inViewEasing: cubic-bezier(0.15, 0.8, 0.25, 1);
+}
+.scaleUp {
+  transform: scale(calc(1 + (var(--inViewMultiplier, 1) * var(--process, 100) / 100)));
+}
+.scaleDown {
+  transform: scale(calc(1 + (100 / var(--inViewMultiplier, 1) * var(--process, 100))));
+}
+.moveLeft {
+  left: calc(100% - (var(--process, 0) * var(--inViewMultiplier, 1) * 1%));
+}
+/*# sourceMappingURL=in-view.css.map */
