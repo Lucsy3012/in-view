@@ -1,15 +1,26 @@
-:root {
-  --inViewMultiplier: 1;
-  --inViewEasingDuration: .3s;
-  --inViewEasing: cubic-bezier(0.15, 0.8, 0.25, 1);
+.in-view--scale-up {
+  transform: scale(calc(1 + (1 * var(--percent, 100) / 100)));
 }
-.scaleUp {
-  transform: scale(calc(1 + (var(--inViewMultiplier, 1) * var(--process, 100) / 100)));
+.in-view--scale-down {
+  transform: scale(calc(1 + (100 / var(--percent, 100) * 1)));
 }
-.scaleDown {
-  transform: scale(calc(1 + (100 / var(--inViewMultiplier, 1) * var(--process, 100))));
+.in-view--move-left {
+  right: calc(100% - (var(--percent, 0) * 1 * 1%));
 }
-.moveLeft {
-  left: calc(100% - (var(--process, 0) * var(--inViewMultiplier, 1) * 1%));
+.in-view--move-right {
+  left: calc(100% - (var(--percent, 0) * 1 * 1%));
+}
+.in-view--fade-in {
+  opacity: calc((var(--percent, 0) / 100));
+}
+.in-view--fade-out {
+  opacity: calc(1 - (var(--percent, 0) / 100));
+}
+.in-view--rotate {
+  transform: rotate(calc(var(--percent, 0) / 100 * 360deg));
+}
+.in-view--slide-up {
+  transform: translate(0, calc(100% - (var(--percent, 0) * 1%)));
+  clip-path: polygon(0 0, 100% 0, 100% calc(var(--percent, 0) * 1%), 0 calc(var(--percent, 0) * 1%));
 }
 /*# sourceMappingURL=in-view.css.map */
